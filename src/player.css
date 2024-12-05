@@ -4,7 +4,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #ffffff;
-    overflow: hidden;
+    overflow-x: hidden;
   }
   
   .player_header {
@@ -203,7 +203,7 @@ body {
   }
   
 /* Modal container */
-.modal {
+.player_modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -217,7 +217,7 @@ body {
 }
 
 /* Modal content */
-.modal-content {
+.player_modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -236,7 +236,7 @@ body {
 }
 
 /* Style for each image in the modal */
-.modal-image {
+.player_modal-image {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -244,12 +244,12 @@ body {
   transition: transform 0.3s ease;
 }
 
-.modal-image:hover {
+.player_modal-image:hover {
   transform: scale(1.1); /* Scale the image on hover for effect */
 }
 
 /* Close button styling */
-.modal-content button {
+.player_modal-content button {
   padding: 10px 20px;
   background-color: #F35D18; /* Same orange as Add Player button */
   color: white;
@@ -259,7 +259,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.modal-content button:hover {
+.player_modal-content button:hover {
   background-color: #e24f12;
 }
 

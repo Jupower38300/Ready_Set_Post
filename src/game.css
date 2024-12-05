@@ -181,7 +181,6 @@
 }
 
 /* Modal Background */
-/* Modal Background */
 .modal {
   position: fixed;
   top: 0;
@@ -207,7 +206,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 400px; /* Ensure enough space for the button at the bottom */
+  height: auto; /* Allow the height to adjust based on content */
 }
 
 /* Close Modal Button */
@@ -254,6 +253,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
 }
 
 .points-buttons button {
@@ -289,7 +289,56 @@
   cursor: not-allowed;
 }
 
+/* Remove Points Button */
+.remove-points-button {
+  background-color: #dc3545; /* Red */
+  padding: 12px 0;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Full width */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
 
+.remove-points-button:disabled {
+  background-color: #ccc; /* Disabled state */
+  cursor: not-allowed;
+}
+
+/* Responsivity for smaller screens */
+@media (max-width: 480px) {
+  /* Modal content adjustments */
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  /* Points selection buttons */
+  .points-buttons {
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line on small screens */
+    justify-content: space-evenly; /* Distribute buttons evenly */
+  }
+
+  .points-buttons button {
+    width: 45%; /* Buttons will take up 45% on smaller screens to fit 2 per row */
+    margin-bottom: 10px; /* Space between the buttons */
+  }
+
+  /* Add points button styling */
+  .add-points-button {
+    width: 100%; /* Ensure the button spans the full width */
+    margin-top: 15px; /* Add some margin between buttons */
+  }
+
+  /* Remove points button styling */
+  .remove-points-button {
+    width: 100%; /* Full width */
+    margin-top: 15px; /* Add some space between Add Points and Remove Points */
+  }
+}
 /* Container for the character */
 .character-container {
   width: 150px;
@@ -358,4 +407,141 @@
 .remove-points-button:disabled {
   background-color: #f5c6cb; /* Disabled state */
   cursor: not-allowed;
+}
+
+
+/* Responsivity for smaller screens */
+@media (max-width: 480px) {
+  /* Modal content adjustments */
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  /* Points selection buttons */
+  .points-buttons {
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line on small screens */
+    justify-content: space-evenly; /* Distribute buttons evenly */
+  }
+
+  .points-buttons button {
+    width: 45%; /* Buttons will take up 45% on smaller screens to fit 2 per row */
+    margin-bottom: 10px; /* Space between the buttons */
+  }
+
+  /* Add points button styling */
+  .add-points-button {
+    width: 100%; /* Ensure the button spans the full width */
+    margin-top: 15px; /* Add some margin between buttons */
+  }
+
+  /* Remove points button styling */
+  .remove-points-button {
+    width: 100%; /* Full width */
+    margin-top: 15px; /* Add some space between Add Points and Remove Points */
+  }
+
+  /* Adjust game header */
+  .game_header {
+    height: 6em; /* Decrease height of header on smaller screens */
+    padding: 0 10px; /* Reduce horizontal padding */
+  }
+
+  .game_header h1 {
+    font-size: 28px; /* Decrease title font size for smaller screens */
+    transform: translateX(-50%); /* Adjust positioning for better alignment */
+  }
+
+  /* Adjust player list styling */
+  .player_list ul {
+    width: 100%; /* Allow player list to take up full width */
+    padding: 0 10px; /* Add padding for better spacing */
+  }
+
+  .player_list li {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    margin-bottom: 10px; /* Reduce margin between players */
+  }
+
+  /* Player icon */
+  .player_list .player_img {
+    width: 50px !important; /* Make icons smaller on smaller screens */
+    height: 50px !important;
+  }
+
+  /* Wheel timer */
+  .wheel_timer h2 {
+    font-size: 24px; /* Reduce font size of timer */
+  }
+
+  .wheel_timer {
+    gap: 10px; /* Reduce gap between elements in the wheel section */
+  }
+
+  /* Modal player icon */
+  .modal-content img {
+    width: 60px; /* Adjust player icon size */
+    height: 60px;
+  }
+
+  /* Character container */
+  .character-container {
+    width: 100%; /* Ensure character container fits width */
+    height: 200px; /* Decrease the height */
+  }
+
+  .character {
+    width: 15em; /* Scale down character width */
+    height: 25em; /* Scale down character height */
+    bottom: -8em; /* Adjust position */
+  }
+}
+
+/* Responsivity for medium to large screens */
+@media (min-width: 1024px) {
+  /* Adjust header for larger screens */
+  .game_header {
+    height: 10em; /* Increase height of the header */
+    padding: 0 30px; /* Add more padding for larger screens */
+  }
+
+  .game_header h1 {
+    font-size: 48px; /* Increase font size of the title */
+    transform: translateX(-60%); /* Fine-tune the positioning */
+  }
+
+  /* Adjust player list */
+  .player_list ul {
+    width: 80%; /* Player list takes up 80% of the available space */
+    padding: 0;
+  }
+
+  .player_list li {
+    font-size: 18px; /* Increase font size for better readability */
+    margin-bottom: 20px; /* Add more space between player names */
+  }
+
+  /* Player icon */
+  .player_list .player_img {
+    width: 70px !important; /* Increase icon size */
+    height: 70px !important;
+  }
+
+  /* Wheel timer */
+  .wheel_timer h2 {
+    font-size: 36px; /* Increase timer font size */
+  }
+
+  /* Character container */
+  .character-container {
+    width: 200px; /* Adjust container size */
+    height: 300px; /* Larger character container for bigger screens */
+  }
+
+  .character {
+    width: 25em; /* Scale up character size */
+    height: 35em; /* Scale up character height */
+    bottom: -18em; /* Adjust position for better alignment */
+  }
 }

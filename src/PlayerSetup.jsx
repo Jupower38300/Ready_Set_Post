@@ -143,8 +143,8 @@ function PlayerSetup() {
 
   {/* Modal for selecting player image */}
   {modalPlayerIndex !== null && (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="player_modal">
+      <div className="player_modal-content">
         <div className="image-grid">
           {images.filter(image => !usedImages.includes(image)).map((image) => (
             <img
@@ -152,7 +152,7 @@ function PlayerSetup() {
               src={image}
               alt="Choose"
               onClick={() => selectImageForPlayer(image)}
-              className="modal-image"
+              className="player_modal-image"
             />
           ))}
         </div>
@@ -164,8 +164,8 @@ function PlayerSetup() {
 
 
       {modalPlayerIndex !== null && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="player_modal">
+          <div className="player_modal-content">
             <div className="image-grid">
               {images.filter(image => !usedImages.includes(image)).map((image) => (
                 <img
@@ -173,7 +173,7 @@ function PlayerSetup() {
                   src={image}
                   alt="Choose"
                   onClick={() => selectImageForPlayer(image)}
-                  className="modal-image"
+                  className="player_modal-image"
                 />
               ))}
             </div>

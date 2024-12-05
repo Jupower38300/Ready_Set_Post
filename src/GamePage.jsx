@@ -305,7 +305,7 @@ function GamePage() {
       <h2>Engagement</h2>
 
       {/* Player's Name (above the icon), with dynamic color */}
-      <h3 style={{ color: selectedPlayer.color }}>{selectedPlayer.name}</h3> {/* This is where you apply the color */}
+      <h3 style={{ color: selectedPlayer.color }}>{selectedPlayer.name}</h3>
 
       {/* Player's Icon */}
       <div className="icon-container">
@@ -334,23 +334,23 @@ function GamePage() {
         </button>
       </div>
 
-      {/* Add Points Button */}
-      <button
-        onClick={handleAddPoints}
-        className="add-points-button"
-        disabled={selectedPoints === null}
-      >
-        Add Points
-      </button>
-
-      {/* Remove Points Button */}
-      <button
-        onClick={handleRemovePoints}
-        className="remove-points-button"
-        disabled={selectedPoints === null}
-      >
-        Remove Points
-      </button>
+      {/* Add and Remove Points Buttons */}
+      <div className="points-actions">
+        <button
+          onClick={handleAddPoints}
+          className="add-points-button"
+          disabled={selectedPoints === null}
+        >
+          Add Points
+        </button>
+        <button
+          onClick={handleRemovePoints}
+          className="remove-points-button"
+          disabled={selectedPoints === null}
+        >
+          Remove Points
+        </button>
+      </div>
     </div>
   </div>
 )}
