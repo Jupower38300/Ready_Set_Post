@@ -302,14 +302,15 @@
 
 /* The character itself */
 .character {
-  width: 100px;
-  height: 100px;
-  background-image: url('character-frame1.png'); /* Default frame */
+  width: 20em;
+  height: 30em;
+  background-image: url('happy-frame.png'); /* Default frame */
   background-size: cover;
-  border-radius: 50%;
   transition: transform 1s, background-image 0.5s; /* For smooth transitions */
   transform-style: preserve-3d;
   transform: rotateY(0deg); /* Initial rotation */
+  position: relative;
+  bottom:-15em;
 }
 
 /* 3D spin effect */
@@ -324,7 +325,7 @@
 
 /* Mood change classes */
 .character.happy {
-  background-image: url('happy-frame.png'); /* Happy frame */
+  background-image: url('character-frame1.png'); /* Happy frame */
 }
 
 .character.sad {

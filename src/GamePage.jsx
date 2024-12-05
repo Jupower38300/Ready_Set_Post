@@ -28,12 +28,14 @@ function GamePage() {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [showModal, setShowModal] = useState(false); // Gère l'ouverture de la modale
-  const [buttonText, setButtonText] = useState("SPIN"); // Texte du bouton
+  const [buttonText, setButtonText] = useState(""); // Texte du bouton
   const [buttonStyle, setButtonStyle] = useState({ backgroundColor: "#007BFF" }); // Style du bouton
   const [selectedPlayer, setSelectedPlayer] = useState(null); // To store selected player
   const [selectedPoints, setSelectedPoints] = useState(null); // To store points selected
 
-
+  const [isSpinning, setIsSpinning] = useState(false); // Track if the character is spinning
+  const [characterPose, setCharacterPose] = useState('normal'); // normal, happy, sad
+  
   const [playerPoints, setPlayerPoints] = useState(
     players.map((player, index) => ({ ...player, points: 0, id: index })) // Add a unique id
   );
@@ -70,35 +72,44 @@ function GamePage() {
     }
   };
 
-  
   const handleStopSpinning = () => {
     setTimeout(() => {
-      setMustSpin(false);
-      const prize = data[prizeNumber];
+      setMustSpin(false); // Stop the wheel spin
   
-      // Start spinning animation
-      setIsSpinning(true);
+      const prize = data[prizeNumber]; // Get the prize
+      setIsSpinning(true); // Start the character spin
   
-      // Set mood based on the prize
-      if (prize.option.includes("+")) {
-        setMood("happy");
-      } else {
-        setMood("sad");
-      }
-  
-      // After the spin, stop animation and show modal
       setTimeout(() => {
-        setIsSpinning(false); // Stop spinning after animation
-      }, 1000); // The duration of the spin animation
+        // After spin animation, set the character's pose
+        if (prize.option.includes("+")) {
+          setCharacterPose("happy"); // Happy for positive outcomes
+        } else if (prize.option.includes("-")) {
+          setCharacterPose("sad"); // Sad for negative outcomes
+        } else {
+          setCharacterPose("normal"); // Neutral/default pose
+        }
   
-      setShowModal(true); // Show the modal with the result
-    }, 1000);
+        setIsSpinning(false); // End the spin animation
+  
+        // Update the modal content
+        if (prize.option.includes("+")) {
+          setButtonText("Yay!");
+          setButtonStyle({ backgroundColor: "#28a745" }); // Green for positive
+        } else {
+          setButtonText("Alright...");
+          setButtonStyle({ backgroundColor: "#dc3545" }); // Red for negative
+        }
+  
+        setShowModal(true); // Show the modal
+      }, 1000); // Duration of the spin animation
+    }, 1000); // Ensure this is in sync with the wheel's animation
   };
 
   const closeModal = () => {
     setShowModal(false);
     setSelectedPlayer(null);
     setSelectedPoints(null);
+    setCharacterPose('normal'); // Reset to normal pose when modal closes
   };
 
   console.log(players); // Debugging: affiche les données des joueurs
@@ -215,64 +226,59 @@ function GamePage() {
             <a href="/">Glossary</a>
             <a href="/">Rules</a>
           </div>
-          <div className="character-container">
-            <div
-              className={`character ${isSpinning ? "spin" : ""} ${mood}`}
-              style={{
-                transform: isSpinning ? "rotateY(360deg)" : "rotateY(0deg)", // Apply 3D rotation when spinning
-              }}
-            ></div>
+          <div
+            className={`character ${isSpinning ? "spin" : ""} ${characterPose}`}
+          ></div>
           </div>
-        </div>
-      </div>
+          </div>
 
       {/* Modale */}
       {showModal && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 20,
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "#fff",
-              padding: "20px",
-              borderRadius: "10px",
-              width: "300px",
-              textAlign: "center",
-              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
-            }}
-          >
-            <h2>{buttonText === "Yay!" ? "Congratulations!" : "Too bad..."}</h2>
-            <p>{descriptions[prizeNumber]}</p>
-            <button
-              onClick={closeModal}
-              className="modal_button"
-              style={{
-                marginTop: "20px",
-                padding: "10px 20px",
-                backgroundColor: buttonStyle.backgroundColor,
-                color: "#fff",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-                fontSize: "16px",
-              }}
-            >
-              {buttonText}
-            </button>
-          </div>
-        </div>
-      )}
+  <div
+    style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 20,
+    }}
+  >
+    <div
+      style={{
+        backgroundColor: "#fff",
+        padding: "20px",
+        borderRadius: "10px",
+        width: "300px",
+        textAlign: "center",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
+      }}
+    >
+      <h2>{buttonText === "Yay!" ? "Congratulations!" : "Too bad..."}</h2>
+      <p>{descriptions[prizeNumber]}</p>
+      <button
+        onClick={closeModal}
+        className="modal_button"
+        style={{
+          marginTop: "20px",
+          padding: "10px 20px",
+          backgroundColor: buttonStyle.backgroundColor,
+          color: "#fff",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          fontSize: "16px",
+        }}
+      >
+        {buttonText}
+      </button>
+    </div>
+  </div>
+)}
 
 {/* Modal content with buttons */}
 {showModal && selectedPlayer && (
