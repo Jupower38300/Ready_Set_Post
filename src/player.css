@@ -14,6 +14,20 @@ body {
     z-index:3;
   }
 
+  /* Style for the header */
+.player_header img {
+  max-width: 100%;
+  height: auto;
+  transition: max-width 0.3s ease;
+}
+
+/* Media query to reduce header size on smaller screens */
+@media (max-width: 600px) {
+  .player_header img {
+    max-width: 60%; /* Reduces logo size on smaller screens */
+  }
+}
+
   .image-overlay-player {
     position: absolute;
     top: 0;
@@ -32,7 +46,7 @@ body {
 
   .content {
     background-color:white;
-    height:40em;
+    height:fit-content;
     z-index:10;
     justify-content: center;
     align-items:center;
@@ -40,6 +54,32 @@ body {
     flex-direction:column;
     text-align:left;
   }
+
+  /* Style for Add Player button */
+.add-player-button {
+  background-color: #F35D18; /* Orange background */
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 48%; /* Buttons will take up half the container width */
+  transition: background-color 0.3s ease;
+}
+
+.add-player-button:hover {
+  background-color: #e24f12;
+}
+
+/* Container for buttons */
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 
   
   .title_industry {
@@ -161,62 +201,66 @@ body {
     background-color: #ccc;
   }
   
-/* Modal Overlay */
+/* Modal container */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    max-width: 500px;
-  }
-  
-  /* Image Grid for Modal */
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    gap: 15px;
-    justify-items: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Modal Image Style */
-  .modal-image {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .modal-image:hover {
-    transform: scale(1.1);
-  }
-  
-  .modal-content button {
-    padding: 10px 20px;
-    background-color: #FF6F1E;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%; /* Adjust the modal width as needed */
+  max-width: 600px; /* Max width for large screens */
+  text-align: center;
+}
+
+/* Style for the image grid in the modal */
+.image-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping if images don't fit on one line */
+  justify-content: center;
+  gap: 15px; /* Spacing between images */
+  margin-bottom: 20px;
+}
+
+/* Style for each image in the modal */
+.modal-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.modal-image:hover {
+  transform: scale(1.1); /* Scale the image on hover for effect */
+}
+
+/* Close button styling */
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #F35D18; /* Same orange as Add Player button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #e24f12;
+}
 
   .ready-button {
     background-color: #62C370;

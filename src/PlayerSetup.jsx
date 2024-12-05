@@ -62,69 +62,71 @@ function PlayerSetup() {
   };
 
   return (
-    <div className="container">
-      <header className="player_header">
-        <img src="/logo.png" alt="Logo Ready, Set, Post!" />
-      </header>
-      <div className="image-overlay-player"/>
-      <div className="content">
-        <div className="title_industry">Industry name</div>
-        <input
-          type="text"
-          placeholder="Enter industry"
-          value={industry}
-          onChange={(e) => setIndustry(e.target.value)}
-          className="input-industry"
-        />
+<div className="container">
+  <header className="player_header">
+    <img src="/logo.png" alt="Logo Ready, Set, Post!" />
+  </header>
+  <div className="image-overlay-player"/>
+  <div className="content">
+    <div className="title_industry">Industry name</div>
+    <input
+      type="text"
+      placeholder="Enter industry"
+      value={industry}
+      onChange={(e) => setIndustry(e.target.value)}
+      className="input-industry"
+    />
 
-        <div className="title">Choose your names</div>
-        <div className="players-grid">
-        {players.map((player, index) => (
-            <div
-              key={index}
-              style={{
-                marginBottom: "20px",
-                display: "flex",
-                flexDirection: "column", // Arrange l'avatar et le champ en colonne
-                alignItems: "center",
-              }}
-            >
-              {/* Avatar du joueur */}
-              <img
-                src={player.image || "placeholder.png"} // Image de l'avatar
-                alt="Player Avatar"
-                onClick={() => handleImageClick(index)}
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  border: player.image ? `2px solid ${player.color}` : "2px solid red", // Bordure colorée
-                  marginBottom: "10px", // Espacement avec l'input
-                }}
-              />
-              {/* Input du joueur */}
-              <input
-                type="text"
-                placeholder="Enter your name"
-                value={player.name}
-                onChange={(e) =>
-                  setPlayers(players.map((p, i) =>
-                    i === index ? { ...p, name: e.target.value } : p
-                  ))
-                }
-                className="player-input"
-                style={{
-                  color: player.color || "#000", // Couleur du texte basée sur l'icône
-                }}
-              />
-            </div>
-          ))}
+    <div className="title">Choose your names</div>
+    <div className="players-grid">
+      {players.map((player, index) => (
+        <div
+          key={index}
+          style={{
+            marginBottom: "20px",
+            display: "flex",
+            flexDirection: "column", // Arrange l'avatar et le champ en colonne
+            alignItems: "center",
+          }}
+        >
+          {/* Avatar du joueur */}
+          <img
+            src={player.image || "placeholder.png"} // Image de l'avatar
+            alt="Player Avatar"
+            onClick={() => handleImageClick(index)}
+            style={{
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%",
+              cursor: "pointer",
+              border: player.image ? `2px solid ${player.color}` : "2px solid red", // Bordure colorée
+              marginBottom: "10px", // Espacement avec l'input
+            }}
+          />
+          {/* Input du joueur */}
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={player.name}
+            onChange={(e) =>
+              setPlayers(players.map((p, i) =>
+                i === index ? { ...p, name: e.target.value } : p
+              ))
+            }
+            className="player-input"
+            style={{
+              color: player.color || "#000", // Couleur du texte basée sur l'icône
+            }}
+          />
         </div>
-      </div>
+      ))}
+    </div>
 
+    {/* Buttons moved inside content */}
+    <div className="buttons-container">
       {players.length < maxPlayers && (
         <button
+          className="add-player-button"
           onClick={() =>
             setPlayers([...players, { name: "", ...assignRandomImage(usedImages) }])
           }
@@ -132,10 +134,33 @@ function PlayerSetup() {
           Add Player
         </button>
       )}
+      
+      <button onClick={handleSubmit} className="ready-button">
+        Ready
+      </button>
+    </div>
+  </div>
 
-        <button onClick={handleSubmit} className="ready-button">
-          Ready
-        </button>
+  {/* Modal for selecting player image */}
+  {modalPlayerIndex !== null && (
+    <div className="modal">
+      <div className="modal-content">
+        <div className="image-grid">
+          {images.filter(image => !usedImages.includes(image)).map((image) => (
+            <img
+              key={image}
+              src={image}
+              alt="Choose"
+              onClick={() => selectImageForPlayer(image)}
+              className="modal-image"
+            />
+          ))}
+        </div>
+        <button onClick={() => setModalPlayerIndex(null)}>Close</button>
+      </div>
+    </div>
+  )}
+
 
 
       {modalPlayerIndex !== null && (
