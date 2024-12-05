@@ -410,9 +410,19 @@
 }
 
 
-/* Responsivity pour les petits écrans */
+/* Hide glossary and rules buttons on mobile */
 @media (max-width: 480px) {
-  /* Ajustement de la taille du header */
+  /* Hide the glossary and rules buttons */
+  .rules_glossary {
+    display: none;
+  }
+
+  /* Hide the character */
+  .character-container {
+    display: none;
+  }
+
+  /* Adjust the rest of the layout for mobile */
   .game_header {
     flex-direction: row;
     justify-content: space-between;
@@ -435,7 +445,7 @@
   .main {
     flex-direction: column;
     height: auto;
-    gap: 15px;
+    gap: 5px; /* Reduce the gap between elements */
   }
 
   /* Zone des joueurs : ajout du scroll horizontal */
@@ -448,7 +458,7 @@
   .player_list ul {
     display: flex;
     padding: 0;
-    gap: 10px;
+    gap: 5px; /* Reduce the gap between player list items */
   }
 
   .player_list li {
@@ -526,6 +536,27 @@
     padding: 6px 12px;  /* Réduit la taille du bouton */
     font-size: 0.8em;    /* Réduit la taille du texte */
     transform: scale(0.85); /* Réduction de la taille du bouton */
+  }
+
+  .timer_button {
+    margin-top:-10px;
+  }
+  /* Adjust the spacing between wheel, title, and start button */
+  .main_home {
+    gap: 5px; /* Reduce space between elements in main_home */
+  }
+
+  .text_home h1 {
+    margin-bottom: 5px; /* Reduce space below the title */
+  }
+
+  .start_button {
+    margin-top: 5px; /* Reduce space above the start button */
+    padding: 8px 16px; /* Adjust padding for smaller button */
+  }
+
+  .wheel_timer {
+    margin-top: -10px; /* Reduce space above the wheel timer button */
   }
 }
 
