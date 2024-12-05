@@ -163,7 +163,7 @@ function GamePage() {
           <span>{player.points} engagement</span>
         </div>
         <button onClick={() => handlePlayerClick(player)}>
-          <img className="plus_button" src="add.png" alt="add" />
+          <img className="plus_button" src="public/add.png" alt="add" />
         </button>
       </div>
 
@@ -200,7 +200,7 @@ function GamePage() {
                 ]}
                 onStopSpinning={handleStopSpinning}
                 pointerProps={{
-                  src: "pointer.webp",
+                  src: "public/pointer.webp",
                 }}
               />
               <button
@@ -236,7 +236,7 @@ function GamePage() {
 
         <div className="other">
           <div className="rules_glossary">
-            <a href="/">Glossary</a>
+           <a href="/">Glossary</a>
             <a href="/">Rules</a>
           </div>
           <div
