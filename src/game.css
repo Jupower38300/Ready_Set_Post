@@ -74,11 +74,8 @@
 .player_list li {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px; /* Increased space between player names */
+  gap: 5px;
   font-family: 'Inter';
-  padding-top:5px;
-  padding-bottom:5px;
 }
 
 /* Player Stats */
@@ -87,7 +84,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; /* Centered icon and engagement points */
-  gap: 10px; /* Increased space between name and engagement points */
 }
 
 /* Player Name */
@@ -126,6 +122,7 @@
   position: relative;
   z-index: 10;
   cursor:pointer;
+ margin-right:40px;
 }
 
 .player_list button {
@@ -159,18 +156,6 @@
 /* Rules and Glossary Section */
 .other {
   gap: 20px;
-}
-
-.rules_glossary {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.rules_glossary a {
-  text-decoration: none;
-  color: #007BFF;
-  font-weight: bold;
 }
 
 .caracter {
@@ -351,15 +336,15 @@
 
 /* The character itself */
 .character {
-  width: 20em;
-  height: 30em;
+  width: 30em;
+  height: 40em;
   background-image: url('/happy-frame.png'); /* Default frame */
   background-size: cover;
   transition: transform 1s, background-image 0.5s; /* For smooth transitions */
   transform-style: preserve-3d;
   transform: rotateY(0deg); /* Initial rotation */
   position: relative;
-  bottom:-15em;
+  bottom:-10em;
 }
 
 /* 3D spin effect */

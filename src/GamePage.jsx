@@ -279,10 +279,6 @@ function GamePage() {
         </div>
 
         <div className="other">
-          <div className="rules_glossary">
-           <a href="/">Glossary</a>
-            <a href="/">Rules</a>
-          </div>
           <div
             className={`character ${isSpinning ? "spin" : ""} ${characterPose}`}
           ></div>

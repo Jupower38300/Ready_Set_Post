@@ -162,7 +162,6 @@ function PlayerSetup() {
   )}
 
 
-
       {modalPlayerIndex !== null && (
         <div className="player_modal">
           <div className="player_modal-content">
