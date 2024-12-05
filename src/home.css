@@ -24,7 +24,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('public/Frame-37.webp') no-repeat center center;
+    background: url('/Frame-37.webp') no-repeat center center;
     background-size: cover; /* L'image remplit l'écran */
     opacity: 0.9; /* Ajuste la visibilité de l'image */
     z-index: 0; /* Assure que l'image est au-dessus du dégradé */
