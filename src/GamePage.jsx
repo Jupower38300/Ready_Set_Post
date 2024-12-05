@@ -163,7 +163,7 @@ function GamePage() {
           <span>{player.points} engagement</span>
         </div>
         <button onClick={() => handlePlayerClick(player)}>
-          <img className="plus_button" src="public/add.png" alt="add" />
+          <img className="plus_button" src="/add.png" alt="add" />
         </button>
       </div>
 

@@ -46,7 +46,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('public/Frame-37.webp') no-repeat center center;
+  background: url('/Frame-37.webp') no-repeat center center;
   background-size: cover;
   opacity: 0.9;
   z-index: 1 !important;
@@ -304,7 +304,7 @@
 .character {
   width: 20em;
   height: 30em;
-  background-image: url('public/happy-frame.png'); /* Default frame */
+  background-image: url('/happy-frame.png'); /* Default frame */
   background-size: cover;
   transition: transform 1s, background-image 0.5s; /* For smooth transitions */
   transform-style: preserve-3d;
@@ -325,11 +325,11 @@
 
 /* Mood change classes */
 .character.happy {
-  background-image: url('public/character-frame1.png'); /* Happy frame */
+  background-image: url('/character-frame1.png'); /* Happy frame */
 }
 
 .character.sad {
-  background-image: url('public/sad-frame.png'); /* Sad frame */
+  background-image: url('/sad-frame.png'); /* Sad frame */
 }
 
 /* Class for spinning the character on desktop */
