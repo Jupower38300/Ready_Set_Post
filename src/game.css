@@ -1,0 +1,339 @@
+.game_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 8em;
+  background-color: white;
+  z-index: 3;
+  position: relative;
+}
+
+.wheel_timer h2 {
+  color:white;
+  font-size:36px;
+}
+.game_header img {
+  height: 6em;
+  object-fit: contain;
+}
+
+.game_header h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-60%);
+  margin: 0;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: #F35D18;
+  font-family: 'Mitr';
+}
+
+/* General Layout */
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 80vh;
+  background: linear-gradient(225deg, rgba(231, 56, 111, 1) 0%, rgba(243, 93, 24, 1) 100%);
+}
+
+.image-overlay-game {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('Frame-37.webp') no-repeat center center;
+  background-size: cover;
+  opacity: 0.9;
+  z-index: 1 !important;
+}
+
+.player_list,
+.wheel_timer,
+.other {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 3;
+}
+
+/* Player List */
+.player_list ul {
+  list-style: none;
+  padding: 0;
+  width: 80%;
+}
+
+.player_list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px; /* Increased space between player names */
+  font-family: 'Inter';
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+/* Player Stats */
+.player_stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centered icon and engagement points */
+  gap: 10px; /* Increased space between name and engagement points */
+}
+
+/* Player Name */
+.player_stats span:first-child {
+  font-weight: bold;
+  font-size: 1.1em; 
+  padding:top/* Slightly larger name */
+}
+
+/* Player Engagement Points */
+.player_stats span:last-child {
+  color: green;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2em; /* Increased font size for engagement points */
+}
+
+/* Player Icon */
+.player_list .player_img {
+  width: 60px !important; /* Slightly bigger icon */
+  height: 60px !important;
+  border-radius: 50%;
+}
+
+/* Plus Button */
+.plus_button {
+  display: flex;
+  width: 40px; /* Smaller size */
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  position: relative;
+  z-index: 10;
+  cursor:pointer;
+}
+
+.player_list button {
+  background:none;
+  border:none;
+}
+
+.plus_button svg {
+  fill: green;
+}
+
+/* Wheel Section */
+.wheel_timer {
+  gap: 20px;
+}
+
+.timer_button {
+  margin-top: 20px;
+}
+
+.timer_button button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Rules and Glossary Section */
+.other {
+  gap: 20px;
+}
+
+.rules_glossary {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.rules_glossary a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.caracter {
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  border-radius: 50%;
+}
+
+/* Modal Background */
+/* Modal Background */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* Ensure enough space for the button at the bottom */
+}
+
+/* Close Modal Button */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #d63384; /* Pink color */
+  cursor: pointer;
+}
+
+/* Engagement Title */
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Player Name Above Icon */
+.modal-content h3 {
+  color: var(--icon-color, #000); /* Use the icon color */
+  margin-bottom: 10px; /* Reduced spacing between name and icon */
+}
+
+/* Icon Container to Center the Icon */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Player Icon */
+.modal-content img {
+  width: 80px; /* Bigger icon */
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* Point Selection Buttons */
+.points-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.points-buttons button {
+  width: 30%; /* Each button takes up 30% of the container */
+  background-color: #28a745; /* Default green */
+  padding: 12px 0;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.points-buttons button.selected {
+  background-color: #d63384; /* Pink when selected */
+}
+
+/* Add Points Button */
+.add-points-button {
+  background-color: #28a745; /* Green */
+  padding: 12px 0;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Full width */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.add-points-button:disabled {
+  background-color: #ccc; /* Disabled state */
+  cursor: not-allowed;
+}
+
+
+/* Container for the character */
+.character-container {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px; /* This gives the 3D effect */
+}
+
+/* The character itself */
+.character {
+  width: 100px;
+  height: 100px;
+  background-image: url('character-frame1.png'); /* Default frame */
+  background-size: cover;
+  border-radius: 50%;
+  transition: transform 1s, background-image 0.5s; /* For smooth transitions */
+  transform-style: preserve-3d;
+  transform: rotateY(0deg); /* Initial rotation */
+}
+
+/* 3D spin effect */
+@keyframes spinCharacter {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg); /* Rotate 360 degrees around Y-axis */
+  }
+}
+
+/* Mood change classes */
+.character.happy {
+  background-image: url('happy-frame.png'); /* Happy frame */
+}
+
+.character.sad {
+  background-image: url('sad-frame.png'); /* Sad frame */
+}
+
+/* Class for spinning the character on desktop */
+@media (min-width: 1024px) {
+  .spin {
+    animation: spinCharacter 1s ease-in-out forwards;
+  }
+}

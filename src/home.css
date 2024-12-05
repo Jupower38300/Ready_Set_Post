@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: 
+    linear-gradient(225deg, rgba(231, 56, 111, 1) 0%, rgba(243, 93, 24, 1) 100%); 
+    position: relative;
+    overflow: hidden; /* Ensures the patterns don't overflow the viewport */
+  }
+
+  .main_home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height:80vh;
+    position:relative;
+    z-index:2;
+  }
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Frame-37.webp') no-repeat center center;
+    background-size: cover; /* L'image remplit l'écran */
+    opacity: 0.9; /* Ajuste la visibilité de l'image */
+    z-index: 0; /* Assure que l'image est au-dessus du dégradé */
+  }
+
+h1, h2, h3, h4 {
+    font-family:'Mitr';
+}
+
+p, button, a {
+    font-family:'Inter';
+}
+
+header {
+    height:7em;
+    display:flex;
+    justify-content:left;
+    padding: 2em 1em 1em 3em;
+}
+
+.text_home {
+    color:white;
+    display:flex;
+    flex-direction:column;
+}
+
+.text_home h1 {
+    font-size:36px;
+}
+
+.text_home p {
+    font-size:24px;
+}
+
+.start_button {
+    box-shadow: inset 0 0 0 0 #ffffff;
+    color:#62C370;
+    margin: 0 -.25rem;
+    font-size: 1.5em;
+    transition:box-shadow .3s ease-in-out, color .3s ease-in-out;
+    background:#ffffff;
+    padding: 10px 20px 10px 20px;
+    width:fit-content;
+    cursor:pointer;
+    border:none;
+  }
+
+.start_button:hover {
+    box-shadow: inset 115px 0 0 0 #62C370;
+    color:#ffffff;
+  }
