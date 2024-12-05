@@ -52,7 +52,20 @@ function GamePage() {
     setSelectedPlayer(player); // Set the selected player
     setShowModal(true); // Show the modal
   };
-  
+
+  const handleRemovePoints = () => {
+    if (selectedPlayer && selectedPoints !== null) {
+      // Met à jour uniquement les points du joueur sélectionné en soustrayant
+      setPlayerPoints((prevState) =>
+        prevState.map((player) =>
+          player.id === selectedPlayer.id
+            ? { ...player, points: Math.max(0, player.points - selectedPoints) }
+            : player // Les autres joueurs restent inchangés
+        )
+      );
+      closeModal(); // Ferme la modale après avoir retiré les points
+    }
+  };
 
   const handleSelectPoints = (points) => {
     setSelectedPoints(points);
@@ -329,9 +342,19 @@ function GamePage() {
       >
         Add Points
       </button>
+
+      {/* Remove Points Button */}
+      <button
+        onClick={handleRemovePoints}
+        className="remove-points-button"
+        disabled={selectedPoints === null}
+      >
+        Remove Points
+      </button>
     </div>
   </div>
 )}
+
 
     </div>
   );

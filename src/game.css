@@ -338,3 +338,24 @@
     animation: spinCharacter 1s ease-in-out forwards;
   }
 }
+
+.remove-points-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #dc3545; /* Red background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.remove-points-button:hover {
+  background-color: #b02a37; /* Darker red on hover */
+}
+
+.remove-points-button:disabled {
+  background-color: #f5c6cb; /* Disabled state */
+  cursor: not-allowed;
+}
