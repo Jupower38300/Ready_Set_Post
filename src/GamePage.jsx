@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./game.css";
 import { Wheel } from "react-custom-roulette";
 
@@ -33,6 +33,9 @@ function GamePage() {
   const [selectedPlayer, setSelectedPlayer] = useState(null); // To store selected player
   const [selectedPoints, setSelectedPoints] = useState(null); // To store points selected
 
+  const [timerModalVisible, setTimerModalVisible] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60); // Timer de 60 secondes
+
   const [isSpinning, setIsSpinning] = useState(false); // Track if the character is spinning
   const [characterPose, setCharacterPose] = useState('normal'); // normal, happy, sad
   
@@ -40,12 +43,37 @@ function GamePage() {
     players.map((player, index) => ({ ...player, points: 0, id: index })) // Add a unique id
   );
 
+  const handleTimerClick = () => {
+    setTimerModalVisible(true); // Affiche la modale du timer
+    setTimeLeft(60); // Réinitialise le timer à 60 secondes
+  };
+
   const handleSpinClick = () => {
     if (!mustSpin) {
       const newPrizeNumber = Math.floor(Math.random() * data.length); // Génère le prix une seule fois
       setPrizeNumber(newPrizeNumber); // Stocke ce numéro pour référence
       setMustSpin(true);
     }
+  };
+
+  // Logique du timer : compte à rebours
+  useEffect(() => {
+    let timer;
+    if (timerModalVisible && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft((prev) => prev - 1); // Décrémente le temps restant
+      }, 1000);
+    } else if (timeLeft === 0) {
+      clearInterval(timer);
+    }
+
+    // Clean-up si la modale est fermée ou que le timer arrive à 0
+    return () => clearInterval(timer);
+  }, [timeLeft, timerModalVisible]);
+
+  const closeTimerModal = () => {
+    setTimerModalVisible(false); // Ferme la modale du timer
+    setTimeLeft(60); // Réinitialise le timer
   };
 
   const handlePlayerClick = (player) => {
@@ -230,7 +258,23 @@ function GamePage() {
           </div>
 
           <div className="timer_button">
-            <button>Timer</button>
+          <button
+              onClick={handleTimerClick}
+              className="timer-button"
+              style={{
+                fontSize: "1.2em",
+                backgroundColor: "#ffffff",
+                color: "#F22B35", // Rose
+                padding: "10px 20px",
+                borderRadius: "5px",
+                border: "2px solid #F22B35",
+                cursor: "pointer",
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                fontWeight: "bold",
+              }}
+            >
+              Start Timer
+            </button>
           </div>
         </div>
 
@@ -244,6 +288,54 @@ function GamePage() {
           ></div>
           </div>
           </div>
+
+ {/* Modale Timer */}
+ {timerModalVisible && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 20,
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#fff",
+                padding: "20px",
+                borderRadius: "10px",
+                width: "300px",
+                textAlign: "center",
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              <h2>Timer</h2>
+              <p>{timeLeft > 0 ? `Time left: ${timeLeft} seconds` : "Time's up!"}</p>
+              <button
+                onClick={closeTimerModal}
+                className="modal_button"
+                style={{
+                  marginTop: "20px",
+                  padding: "10px 20px",
+                  backgroundColor: "#28a745", // Green for closing
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  fontSize: "16px",
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
 
       {/* Modale */}
       {showModal && (

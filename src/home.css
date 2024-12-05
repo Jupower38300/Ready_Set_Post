@@ -81,3 +81,38 @@ header {
   position:relative;
   bottom:-25em;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .img_home {
+    display:block;
+    width:2em;
+    height:2em;
+    position:relative;
+    right:20em;
+    bottom:-25em;
+  }
+
+  .main_home {
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Adjust the height */
+  }
+
+  .text_home h1 {
+    font-size: 28px; /* Adjust heading size for smaller screens */
+    margin-left: 10px;
+  }
+
+  .text_home p {
+    font-size: 18px; /* Adjust paragraph size for smaller screens */
+    margin-left: 10px;
+  }
+
+  .start_button {
+    margin-top:30px;
+    margin-left:50%;
+  }
+
+}
