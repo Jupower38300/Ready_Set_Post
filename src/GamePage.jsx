@@ -130,7 +130,7 @@ function GamePage() {
   return (
     <div>
       <header className="game_header">
-        <img src="logo.png" alt="logo" />
+        <img src="/logo.png" alt="logo" />
         <h1>@{industry}</h1>
       </header>
       <div className="main">
@@ -200,7 +200,7 @@ function GamePage() {
                 ]}
                 onStopSpinning={handleStopSpinning}
                 pointerProps={{
-                  src: "public/pointer.webp",
+                  src: "/pointer.webp",
                 }}
               />
               <button

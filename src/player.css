@@ -1,0 +1,244 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ffffff;
+  }
+  
+  .player_header {
+    color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    z-index:3;
+  }
+
+  .image-overlay-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/Frame-37.webp') no-repeat center center;
+    background-size: cover; /* L'image remplit l'écran */
+    opacity: 0.9; /* Ajuste la visibilité de l'image */
+    z-index: -1; /* Assure que l'image est au-dessus du dégradé */
+  }
+  
+  .player_header img {
+    width: 150px;
+  }
+
+  .content {
+    background-color:white;
+    height:40em;
+    z-index:10;
+    justify-content: center;
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+  }
+
+  
+  .title_industry {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #ff5a5a;
+    text-align: center;
+    font-family:'Mitr';
+    font-size:2em;
+    text-align:left;
+    max-width:400px;
+    width:80%;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #ff5a5a;
+    text-align: center;
+    font-family:'Mitr';
+    font-size:2em;
+  }
+  
+  .input-industry {
+    background-color: #FF6F1E; /* Fond orange */
+    color: white; /* Texte blanc */
+    font-size: 18px; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    text-align: center; /* Centrage du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 20px; /* Bordure arrondie */
+    padding: 15px; /* Espacement interne */
+    width: 80%; /* Largeur adaptative */
+    max-width: 400px; /* Limite la largeur */
+    margin: 0 auto 30px; /* Centrage horizontal + espacement */
+  }
+  
+  .input-industry::placeholder {
+    color: white; /* Placeholder blanc */
+    opacity: 0.8; /* Légère transparence */
+  }
+  
+  .input-industry:focus {
+    outline: none; /* Supprime le contour par défaut */
+    box-shadow: 0 0 8px rgba(255, 111, 30, 0.8); /* Effet lumineux */
+  }
+  
+  
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .player-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .player-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ff755a;
+    margin-bottom: 10px;
+  }
+  
+  .player-item input {
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: 80%;
+  }
+
+  .player-input {
+    background-color: white; /* Fond blanc */
+    color: inherit; /* Couleur héritée (pour correspondre à l'icône choisie) */
+    font-size: 16px; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    text-align: center; /* Texte centré */
+    border: none; /* Pas de bordure */
+    border-radius: 10px; /* Bordures légèrement arrondies */
+    padding: 10px; /* Espacement interne */
+    width: 100%; /* Occupe toute la largeur disponible */
+    max-width: 200px; /* Largeur maximale */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
+    margin-top: 10px; /* Espacement au-dessus */
+  }
+  
+  .player-input::placeholder {
+    color: #ccc; /* Placeholder gris clair */
+  }
+  
+  .player-input:focus {
+    outline: none; /* Supprime le contour bleu par défaut */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Ombre au focus */
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #38c257;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+/* Modal Overlay */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 500px;
+  }
+  
+  /* Image Grid for Modal */
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 15px;
+    justify-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Modal Image Style */
+  .modal-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .modal-image:hover {
+    transform: scale(1.1);
+  }
+  
+  .modal-content button {
+    padding: 10px 20px;
+    background-color: #FF6F1E;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .ready-button {
+    background-color: #62C370;
+    color: white;
+    border: none;
+    padding: 16px 32px; /* Augmenter la taille des bords du bouton */
+    font-size: 18px; /* Taille du texte */
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%; /* Le bouton s'étendra sur toute la largeur de son conteneur */
+    max-width: 300px; /* Limiter la taille maximale sur les grands écrans */
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ready-button:hover {
+    background-color: #4c9957; /* Changer la couleur lors du survol */
+  }
+  
+  @media (max-width: 600px) {
+    .ready-button {
+      font-size: 16px; /* Réduire la taille du texte sur les petits écrans */
+      padding: 12px 24px; /* Ajuster le padding sur mobile */
+    }
+  }

@@ -76,3 +76,8 @@ header {
     box-shadow: inset 115px 0 0 0 #62C370;
     color:#ffffff;
   }
+
+.img_home {
+  position:relative;
+  bottom:-25em;
+}

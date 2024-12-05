@@ -12,12 +12,12 @@ function Home () {
     return (
         <>
             <header>   
-                <img src="logo.png" alt="Logo Ready, Set, Post!"/>
+                <img src="/logo.png" alt="Logo Ready, Set, Post!"/>
             </header>
             <div class="image-overlay"></div>
             <div className="main_home">
                 <div className="img_home">
-                    <img href=""/>
+                    <img src="/home_character.png"/>
                 </div>
                 <div className="text_home">
                     <h1>Reimagine the way you learn community management :</h1>
